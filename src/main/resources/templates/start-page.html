@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Start </title>
+</head>
+<body>
+<h1>Links</h1>
+<tr th:each="page : ${pages}">
+   <a th:href="@{'/3000/' + ${page.slug}}">
+       <input th:name="slug" type="hidden" th:value="${page.slug}">
+       <td th:text="${page.menuLabel}"></td><br>
+   </a>
+</tr>
+
+<a id="toggleLink" href="javascript:void(0);" onclick="viewdiv('mydiv');" data-text-show="Спрятать блок" data-text-hide="Показать блок">Показать блок</a>
+<div id="mydiv" style="display:none;">
+    <tr th:each="page : ${notPublishedPages}">
+        <a th:href="@{'/3000/' + ${page.slug}}">
+            <input th:name="slug" type="hidden" th:value="${page.slug}">
+            <td th:text="${page.menuLabel}"></td><br>
+        </a>
+    </tr>
+</div>
+<script>
+    function viewdiv(id) {
+        var el = document.getElementById(id);
+        var link = document.getElementById('toggleLink');
+        if (el.style.display == "block") {
+            el.style.display = "none";
+            link.innerText = link.getAttribute('data-text-hide');
+        } else {
+            el.style.display = "block";
+            link.innerText = link.getAttribute('data-text-show');
+        }
+    }
+</script>
+<form action="/add/page" method="get">
+    <button type="submit">Create new page</button>
+</form>
+</body>
+</html>
+
+
+<!--
+<tr th:each="page : ${pages}">
+    <td th:text="${page.menuLabel}"
+        th:action="@{'/page/?slug=' + ${page.slug}}"
+        th:type="submit"></td><br>
+</tr>-->
+
+
+<!--
+<form th:text="${page.menuLabel}"
+      method="get" action="@{'/page/?slug=' + ${page.slug}}">
+    <input name="slug" type="hidden" value="${page.slug}">
+    <button type="submit"></button>
+</form>-->

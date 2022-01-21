@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" th:name="${page.description}"/>
+    <title th:text="${page.title}"/>
+</head>
+<body>
+<h1 th:text="${page.hOne}"/>
+
+    <td><h4>Content:</h4></td>
+
+    <td><h4 th:text="${page.content}"></h4></td>
+
+    <h2>Published:</h2><h2 th:text="${page.published}"></h2>
+    <h2>Priority:</h2><td><h2 th:text="${page.priority}"></h2></td>
+</body>
+</html>

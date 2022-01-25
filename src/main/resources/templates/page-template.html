@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" th:name="${page.description}"/>
+    <meta charset="UTF-8" th:name="description" th:content="${page.description}"/>
     <title th:text="${page.title}"/>
 </head>
 <body>
 <h1 th:text="${page.hOne}"/>
+<td><h4>Content:</h4></td>
+<div th:with="content = ${page.content}">
+    <span th:utext="${content}"></span>
+</div>
+<h2>Published:</h2>
+<h2 th:text="${page.published}"></h2>
+<h2>Priority:</h2>
+<td><h2 th:text="${page.priority}"></h2></td>
 
-    <td><h4>Content:</h4></td>
-
-    <td><h4 th:text="${page.content}"></h4></td>
-
-    <h2>Published:</h2><h2 th:text="${page.published}"></h2>
-    <h2>Priority:</h2><td><h2 th:text="${page.priority}"></h2></td>
+<form action="#" th:action="@{/page/delete}" th:method="post">
+    <input type="hidden" name="slugPageForDelete" th:value="${page.slug}">
+    <button type="submit">Delete page</button>
+</form>
+<form action="#" th:action="@{'/page/refactoring/' + ${page.slug}}">
+    <input type="hidden" th:name="slug" th:value="${page.slug}">
+    <button type="submit">Refactoring page</button>
+</form>
+<form action="#" th:action="@{'/'}">
+    <button type="submit">Home</button>
+</form>
 </body>
 </html>

@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-db
+      author: com.gmail.rak.aleh
+      tag: db_create
+
+  - include:
+      file: db/changelog/v-1.0.0/db.changelog-v.1.0.0.yml
+      relativeToChangeLogFile: true

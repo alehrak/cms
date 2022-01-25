@@ -22,10 +22,10 @@ public class StartController {
     public String startPage(Model model) {
         List<PageDTO> pagesPublished = pageService.getPublishedPages();
         model.addAttribute("pages", pagesPublished);
-        log.info("111111111" + pagesPublished);
+        log.info("@@@@@@@@@" + pagesPublished);
         List<PageDTO> notPublishedPages = pageService.getNotPublishedPages();
         model.addAttribute("notPublishedPages", notPublishedPages);
-        log.info("333333333" + notPublishedPages);
+        log.info("@@@@@@@@@" + notPublishedPages);
         return "start-page";
     }
 }

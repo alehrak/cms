@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Create new page</title>
+</head>
+<body>
+<form action="#" th:action="@{/page/add}" th:object="${pageDTO}" method="post">
+    Description:<input minlength="2" name="description" type="text" placeholder="description"><br>
+    Title:<input minlength="2" name="title" type="text" placeholder="title"><br>
+    Slug:<input minlength="2" name="slug" type="text" placeholder="slug"><br>
+    Menu Label:<input minlength="2" name="menuLabel" type="text" placeholder="label"><br>
+    H1:<input minlength="2" name="hOne" type="text" placeholder="h1"><br>
+    Content:
+    <div>
+       <textarea minlength="2" id="textarea" name="content" type="text" cols="30" rows="5">
+    </textarea><br>
+    </div>
+    Date of publication:<input minlength="16" name="published" type="datetime-local"
+                               placeholder="2022-01-18 08:32:00"><br>
+    Priority:<input type="number" name="priority"><br>
+    <input type="submit" value="Add page">
+</form>
+<form action="#" th:action="@{'/'}">
+    <button type="submit">Home</button>
+</form>
+</body>
+</html>

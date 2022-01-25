@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error page</title>
+</head>
+<body>
+<h2 th:text="${slug}"></h2> : slug already exists, must be unique
+<form action="#" th:action="@{/page/add}">
+    <button type="submit">Back</button>
+</form>
+</body>
+</html>

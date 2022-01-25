@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="utf-8">
+    <title>Refactor page</title>
+</head>
+<body>
+<form action="#" th:action="@{'/page/refactoring/'}" th:object="${page}" method="post">
+    <input type="hidden" th:name="slug" th:value="${page.slug}">
+    Description:<input name="description" type="text" th:value="${page.description}"><br>
+    Title:<input name="title" type="text" th:value="${page.title}"><br>
+    Menu Label:<input name="menuLabel" type="text" th:value="${page.menuLabel}"><br>
+    H1:<input name="hOne" type="text" th:value="${page.description}"><br>
+    Content:
+    <div>
+       <textarea id="textarea" name="content" type="text" cols="30" rows="5" th:value="${page.content}">
+    </textarea><br>
+    </div>
+    Date of publication:<input name="published" type="text" th:value="${page.published}"><br>
+    Priority:<input type="number" name="priority" th:value="${page.priority}"><br>
+    <input type="submit" value="Refactor">
+</form>
+<form action="#" th:action="@{'/' + ${page.slug}}">
+    <button type="submit">Back</button>
+</form>
+<form action="#" th:action="@{'/'}">
+    <button type="submit">Exit</button>
+</form>
+</body>
+</html>
